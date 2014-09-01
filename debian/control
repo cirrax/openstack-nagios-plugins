@@ -1,0 +1,21 @@
+Source: openstacknagios
+Maintainer: Benedikt Trefzer <benedikt.trefzer@cirrax.com>
+Section: python
+Priority: optional
+Build-Depends: python-setuptools (>= 0.6b3), python-all (>= 2.6.6-3), debhelper (>= 7.4.3)
+Standards-Version: 3.9.1
+
+Package: python-openstacknagios
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, 
+         python-nagiosplugin, 
+         python-keystoneclient,
+         python-novaclient,
+         python-cinderclient,
+         python-neutronclient,
+         python-cliff (>= 1.6.1)
+Description: nagios/icinga plugins to monitor an openstack installation
+ Several check script for nagios/icinga to check
+ services of an openstack cluster.
+ .
+ The scripts use the nagiosplugins module.
