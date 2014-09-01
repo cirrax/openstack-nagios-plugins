@@ -34,15 +34,15 @@ optional arguments:
   -c RANGE, --critical RANGE
                         return critical if number of up agents is outside
                         RANGE (default 1:, never critical)
-  --warn\_disabled RANGE
+  --warn_disabled RANGE
                         return warning if number of disabled agents is outside
                         RANGE (default: @1:, warn if any disabled agents
-  --critical\_disabled RANGE
+  --critical_disabled RANGE
                         return critical if number of disabled agents is
                         outside RANGE (default: 0:, never critical
-  --warn\_down RANGE     return warning if number of down agents is outside
+  --warn_down RANGE     return warning if number of down agents is outside
                         RANGE (default: 0:, never warn)
-  --critical\_down RANGE
+  --critical_down RANGE
                         return critical if number of down agents is outside
                         RANGE (default: 0, always critical if any
   --binary BINARY       filter agent binary
@@ -64,15 +64,15 @@ optional arguments:
   -c RANGE, --critical RANGE
                         return critical if number of up agents is outside
                         RANGE (default 1:, never critical)
-  --warn\_disabled RANGE
+  --warn_disabled RANGE
                         return warning if number of disabled agents is outside
                         RANGE (default: @1:, warn if any disabled agents
-  --critical\_disabled RANGE
+  --critical_disabled RANGE
                         return critical if number of disabled agents is
                         outside RANGE (default: 0:, never critical
-  --warn\_down RANGE     return warning if number of down agents is outside
+  --warn_down RANGE     return warning if number of down agents is outside
                         RANGE (default: 0:, never warn)
-  --critical\_down RANGE
+  --critical_down RANGE
                         return critical if number of down agents is outside
                         RANGE (default: 0, always critical if any
   --binary BINARY       filter agent binary
@@ -120,15 +120,15 @@ optional arguments:
   -c RANGE, --critical RANGE
                         return critical if number of up agents is outside
                         RANGE (default 1:, never critical)
-  --warn\_disabled RANGE
+  --warn_disabled RANGE
                         return warning if number of disabled agents is outside
                         RANGE (default: @1:, warn if any disabled agents
-  --critical\_disabled RANGE
+  --critical_disabled RANGE
                         return critical if number of disabled agents is
                         outside RANGE (default: 0:, never critical
-  --warn\_down RANGE     return warning if number of down agents is outside
+  --warn_down RANGE     return warning if number of down agents is outside
                         RANGE (default: 0:, never warn)
-  --critical\_down RANGE
+  --critical_down RANGE
                         return critical if number of down agents is outside
                         RANGE (default: 0, always critical if any
   --binary BINARY       filter agent binary
@@ -155,28 +155,28 @@ optional arguments:
   -c RANGE, --critical RANGE
                         return critical if number of running vms is outside
                         RANGE (default 0:, never critical)
-  --warn\_memory RANGE   return warning if number of disabled agents is outside
+  --warn_memory RANGE   return warning if number of disabled agents is outside
                         RANGE (default: 0:, never warn
-  --critical\_memory RANGE
+  --critical_memory RANGE
                         return critical if number of disabled agents is
                         outside RANGE (default: 0:, never critical
-  --warn\_memory\_percent RANGE
+  --warn_memory_percent RANGE
                         return warning if number of disabled agents is outside
                         percent RANGE (default: 0:90, warn if 90% of memory is
                         used
-  --critical\_memory\_percent RANGE
+  --critical_memory_percent RANGE
                         return critical if number of disabled agents is
                         outside percent RANGE (default: 0:90, critical if 95%
                         of memory is used
-  --warn\_vcpus RANGE    return warning if number of down agents is outside
+  --warn_vcpus RANGE    return warning if number of down agents is outside
                         RANGE (default: 0:, never warn)
-  --critical\_vcpus RANGE
+  --critical_vcpus RANGE
                         return critical if number of down agents is outside
                         RANGE (default: 0, always critical if any
-  --warn\_vcpus\_percent RANGE
+  --warn_vcpus_percent RANGE
                         return warning if number of down agents is outside
                         RANGE (default: 0:90, warn if 90% of vcpus are used)
-  --critical\_vcpus\_percent RANGE
+  --critical_vcpus_percent RANGE
                         return critical if number of down agents is outside
                         RANGE (default: 0:95, critical if 95% of vcpus are
                         used
