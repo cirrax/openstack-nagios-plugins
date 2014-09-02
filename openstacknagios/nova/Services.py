@@ -45,6 +45,7 @@ class NovaServices(osnag.Resource):
                             self.openstack['password'], 
                             self.openstack['tenant_name'],
                             auth_url    = self.openstack['auth_url'],
+                            cacert      = self.openstack['cacert'],
                             insecure    = self.openstack['insecure'])
         except Exception as e:
            self.exit_error(str(e))

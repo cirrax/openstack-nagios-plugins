@@ -40,7 +40,7 @@ class Resource(NagiosResource):
 
     def get_openstack_vars(self,args=None):
 
-       os_vars = dict(username='', password='',tenant_name='',auth_url='')
+       os_vars = dict(username='', password='',tenant_name='',auth_url='', cacert='')
 
        if args.filename:
           config = ConfigParser.RawConfigParser()
@@ -102,5 +102,6 @@ class ArgumentParser(ArgArgumentParser):
                            "SSL (https) requests. The server's certificate will "
                            "not be verified against any certificate authorities. "
                            "This option should be used with caution.")
-
-
+        self.add_argument('--cacert',
+                      help="Specify a CA bundle file to use in verifying a TLS"
+                           "(https) server certificate.")
