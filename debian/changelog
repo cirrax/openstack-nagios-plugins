@@ -1,3 +1,9 @@
+openstacknagios (1.0.2-1) unstable; urgency=low
+
+  * Fix filename usage
+
+ -- Benedikt Trefzer <benedikt.trefzer@cirrax.com>  Mon, 04 Sep 2014 18:43:33 +0200
+
 openstacknagios (1.0.1-1) unstable; urgency=low
 
   * new option timeout
