@@ -189,7 +189,7 @@ optional arguments:
 Admin rights are necessary to run this check.
 
 check\_ceilometer-statistics
-----------------------------
+---------------------------
 Nagios/Icinga plugin to check ceilometer statistics. Returns the statistic of
 the chosen meter. This also returns the age of the last sample used to
 aggregate. So this check can also be used to verify freshness of samples in
@@ -223,5 +223,20 @@ the ceilometer DB. (or of course to check the value).
   --aggregate AGGREGATE
                         Aggregate function to use. Can be one of avg or sum
                         (avg is the default)
+```
+
+check\_keystone-token
+--------------------
+
+Nagios/Icinga plugin to check keystone. The check will get a token and mesure the
+time used.
+
+```
+  -w RANGE, --warn RANGE
+                        return warning if number of up agents is outside RANGE
+                        (default: 0:, never warn)
+  -c RANGE, --critical RANGE
+                        return critical if number of up agents is outside
+                        RANGE (default 1:, never critical)
 ```
 
