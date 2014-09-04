@@ -11,6 +11,8 @@ For all checks there are some common arguments:
                         takes the standard environment variables from openstack.
   -v, --verbose         increase output verbosity (use up to 3 times)(not
                         everywhere implemented)
+  --cacert CACERT       Specify a CA bundle file to use in verifying a
+                        TLS(https) server certificate.
   --insecure            Explicitly allow to perform "insecure" SSL
                         (https) requests. The server's certificate will not be
                         verified against any certificate authorities. This
