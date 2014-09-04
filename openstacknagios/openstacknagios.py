@@ -87,7 +87,7 @@ class Summary(NagiosSummary):
 
 class ArgumentParser(ArgArgumentParser):
 
-    def __init__(self,description, epilog='Admin rights are necessary to run this check.'):
+    def __init__(self,description, epilog=''):
         ArgArgumentParser.__init__(self,description=description, epilog=epilog)
 
         self.add_argument('--filename',
