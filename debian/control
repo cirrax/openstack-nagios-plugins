@@ -13,6 +13,7 @@ Depends: ${misc:Depends}, ${python:Depends},
          python-novaclient,
          python-cinderclient,
          python-neutronclient,
+         python-ceilometerclient,
          python-cliff (>= 1.6.1)
 Description: nagios/icinga plugins to monitor an openstack installation
  Several check script for nagios/icinga to check

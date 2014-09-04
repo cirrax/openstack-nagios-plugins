@@ -1,3 +1,13 @@
+openstacknagios (1.0.1-1) unstable; urgency=low
+
+  * new option timeout
+  * add check_keystone-token check
+  * add check_ceilometer-statistics check
+  * add dependency to ceilometerclient
+  * add option to specify cert
+
+ -- Benedikt Trefzer <benedikt.trefzer@cirrax.com>  Mon, 04 Sep 2014 18:13:33 +0200
+
 openstacknagios (1.0.0-1) unstable; urgency=low
 
   * source package automatically created by stdeb 0.6.0+git
