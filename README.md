@@ -15,6 +15,8 @@ For all checks there are some common arguments:
                         (https) requests. The server's certificate will not be
                         verified against any certificate authorities. This
                         option should be used with caution.
+  --timeout TIMEOUT     amount of seconds until execution stops with unknow
+                        state (default 10 seconds)
 ```
 
 Currently the following checks are implemented:

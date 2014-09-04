@@ -105,7 +105,7 @@ def main():
         osnag.ScalarContext('memory_percent', args.warn_memory_percent, args.critical_memory_percent),
         osnag.Summary(show=['memory_used','memory_percent', 'vcpus_used','vcpus_percent','running_vms'])
         )
-    check.main(verbose=args.verbose)
+    check.main(verbose=args.verbose,  timeout=args.timeout)
 
 if __name__ == '__main__':
     main()

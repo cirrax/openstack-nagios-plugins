@@ -107,7 +107,7 @@ def main():
         osnag.ScalarContext('total', '0:', '@0'),
         osnag.Summary(show=['up','disabled','down','total'])
         )
-    check.main(verbose=args.verbose)
+    check.main(verbose=args.verbose, timeout=args.timeout)
 
 if __name__ == '__main__':
     main()

@@ -94,7 +94,7 @@ def main():
         osnag.ScalarContext('used'),
         osnag.Summary(show=['assigned','used'])
         )
-    check.main(verbose=args.verbose)
+    check.main(verbose=args.verbose, timeout=args.timeout)
 
 if __name__ == '__main__':
     main()

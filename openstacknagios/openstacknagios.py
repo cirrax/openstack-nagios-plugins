@@ -95,6 +95,8 @@ class ArgumentParser(ArgArgumentParser):
         self.add_argument('-v', '--verbose', action='count', default=0,
                       help='increase output verbosity (use up to 3 times)'
                            '(not everywhere implemented)')
+        self.add_argument('--timeout', type=int, default=10,
+                      help='amount of seconds until execution stops with unknow state (default 10 seconds)')
         self.add_argument('--insecure',
                       default=False,
                       action='store_true',
