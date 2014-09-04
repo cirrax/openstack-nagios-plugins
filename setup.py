@@ -14,7 +14,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='1.0.0',
+    version='1.0.1',
 
     description='nagios/icinga plugins to monitor an openstack installation',
     long_description=long_description,
@@ -75,6 +75,7 @@ setup(
         'python-keystoneclient', 
         'python-neutronclient', 
         'python-cinderclient',
+        'python-ceilometerclient',
     ],
 
     # To provide executable scripts, use entry points in preference to the
@@ -87,6 +88,8 @@ setup(
             'check_cinder-services=openstacknagios.cinder.Services:main',
             'check_neutron-agents=openstacknagios.neutron.Agents:main',
             'check_neutron-floatingips=openstacknagios.neutron.Floatingips:main',
+            'check_keystone-token=openstacknagios.keystone.Token:main',
+            'check_ceilometer-statistics=openstacknagios.ceilometer.Statistics:main',
         ],
     },
 )

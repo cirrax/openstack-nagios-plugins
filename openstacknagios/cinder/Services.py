@@ -45,7 +45,8 @@ class CinderServices(osnag.Resource):
                               self.openstack['password'], 
                               self.openstack['tenant_name'], 
                               self.openstack['auth_url'],
-                              insecure=self.openstack['insecure'])
+                              insecure=self.openstack['insecure'],
+                              cacert=self.openstack['cacert'])
         except Exception as e:
            self.exit_error(str(e))
 
@@ -106,7 +107,7 @@ def main():
         osnag.ScalarContext('total', '0:', '@0'),
         osnag.Summary(show=['up','disabled','down','total'])
         )
-    check.main(verbose=args.verbose)
+    check.main(verbose=args.verbose, timeout=args.timeout)
 
 if __name__ == '__main__':
     main()

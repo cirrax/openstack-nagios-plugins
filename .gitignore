@@ -1,3 +1,6 @@
 *.pyc
 develop
 openstacknagios.egg-info
+dist
+build
+Makefile

@@ -47,6 +47,7 @@ class NeutronAgents(osnag.Resource):
                                     password    = self.openstack['password'],
                                     tenant_name = self.openstack['tenant_name'],
                                     auth_url    = self.openstack['auth_url'],
+                                    cacert      = self.openstack['cacert'],
                                     insecure    = self.openstack['insecure'])
         except Exception as e:
            self.exit_error('cannot get token ' + str(e))
@@ -54,6 +55,7 @@ class NeutronAgents(osnag.Resource):
         try:
            neutron = client.Client('2.0', endpoint_url = keystone.service_catalog.url_for(endpoint_type='public',service_type='network'),
                                           token        = keystone.auth_token,
+                                          ca_cert      = self.openstack['cacert'],
                                           insecure     = self.openstack['insecure'])
         except Exception as e:
            self.exit_error('cannot load ' + str(e))
@@ -115,7 +117,7 @@ def main():
         osnag.ScalarContext('total', '0:', '@0'),
         osnag.Summary(show=['up','disabled','down'])
         )
-    check.main(verbose=args.verbose)
+    check.main(verbose=args.verbose, timeout=args.timeout)
 
 if __name__ == '__main__':
     main()

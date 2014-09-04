@@ -11,10 +11,14 @@ For all checks there are some common arguments:
                         takes the standard environment variables from openstack.
   -v, --verbose         increase output verbosity (use up to 3 times)(not
                         everywhere implemented)
+  --cacert CACERT       Specify a CA bundle file to use in verifying a
+                        TLS(https) server certificate.
   --insecure            Explicitly allow to perform "insecure" SSL
                         (https) requests. The server's certificate will not be
                         verified against any certificate authorities. This
                         option should be used with caution.
+  --timeout TIMEOUT     amount of seconds until execution stops with unknow
+                        state (default 10 seconds)
 ```
 
 Currently the following checks are implemented:
@@ -34,15 +38,15 @@ optional arguments:
   -c RANGE, --critical RANGE
                         return critical if number of up agents is outside
                         RANGE (default 1:, never critical)
-  --warn\_disabled RANGE
+  --warn_disabled RANGE
                         return warning if number of disabled agents is outside
                         RANGE (default: @1:, warn if any disabled agents
-  --critical\_disabled RANGE
+  --critical_disabled RANGE
                         return critical if number of disabled agents is
                         outside RANGE (default: 0:, never critical
-  --warn\_down RANGE     return warning if number of down agents is outside
+  --warn_down RANGE     return warning if number of down agents is outside
                         RANGE (default: 0:, never warn)
-  --critical\_down RANGE
+  --critical_down RANGE
                         return critical if number of down agents is outside
                         RANGE (default: 0, always critical if any
   --binary BINARY       filter agent binary
@@ -64,15 +68,15 @@ optional arguments:
   -c RANGE, --critical RANGE
                         return critical if number of up agents is outside
                         RANGE (default 1:, never critical)
-  --warn\_disabled RANGE
+  --warn_disabled RANGE
                         return warning if number of disabled agents is outside
                         RANGE (default: @1:, warn if any disabled agents
-  --critical\_disabled RANGE
+  --critical_disabled RANGE
                         return critical if number of disabled agents is
                         outside RANGE (default: 0:, never critical
-  --warn\_down RANGE     return warning if number of down agents is outside
+  --warn_down RANGE     return warning if number of down agents is outside
                         RANGE (default: 0:, never warn)
-  --critical\_down RANGE
+  --critical_down RANGE
                         return critical if number of down agents is outside
                         RANGE (default: 0, always critical if any
   --binary BINARY       filter agent binary
@@ -120,15 +124,15 @@ optional arguments:
   -c RANGE, --critical RANGE
                         return critical if number of up agents is outside
                         RANGE (default 1:, never critical)
-  --warn\_disabled RANGE
+  --warn_disabled RANGE
                         return warning if number of disabled agents is outside
                         RANGE (default: @1:, warn if any disabled agents
-  --critical\_disabled RANGE
+  --critical_disabled RANGE
                         return critical if number of disabled agents is
                         outside RANGE (default: 0:, never critical
-  --warn\_down RANGE     return warning if number of down agents is outside
+  --warn_down RANGE     return warning if number of down agents is outside
                         RANGE (default: 0:, never warn)
-  --critical\_down RANGE
+  --critical_down RANGE
                         return critical if number of down agents is outside
                         RANGE (default: 0, always critical if any
   --binary BINARY       filter agent binary
@@ -155,31 +159,84 @@ optional arguments:
   -c RANGE, --critical RANGE
                         return critical if number of running vms is outside
                         RANGE (default 0:, never critical)
-  --warn\_memory RANGE   return warning if number of disabled agents is outside
+  --warn_memory RANGE   return warning if number of disabled agents is outside
                         RANGE (default: 0:, never warn
-  --critical\_memory RANGE
+  --critical_memory RANGE
                         return critical if number of disabled agents is
                         outside RANGE (default: 0:, never critical
-  --warn\_memory\_percent RANGE
+  --warn_memory_percent RANGE
                         return warning if number of disabled agents is outside
                         percent RANGE (default: 0:90, warn if 90% of memory is
                         used
-  --critical\_memory\_percent RANGE
+  --critical_memory_percent RANGE
                         return critical if number of disabled agents is
                         outside percent RANGE (default: 0:90, critical if 95%
                         of memory is used
-  --warn\_vcpus RANGE    return warning if number of down agents is outside
+  --warn_vcpus RANGE    return warning if number of down agents is outside
                         RANGE (default: 0:, never warn)
-  --critical\_vcpus RANGE
+  --critical_vcpus RANGE
                         return critical if number of down agents is outside
                         RANGE (default: 0, always critical if any
-  --warn\_vcpus\_percent RANGE
+  --warn_vcpus_percent RANGE
                         return warning if number of down agents is outside
                         RANGE (default: 0:90, warn if 90% of vcpus are used)
-  --critical\_vcpus\_percent RANGE
+  --critical_vcpus_percent RANGE
                         return critical if number of down agents is outside
                         RANGE (default: 0:95, critical if 95% of vcpus are
                         used
 ```
 
 Admin rights are necessary to run this check.
+
+check\_ceilometer-statistics
+---------------------------
+Nagios/Icinga plugin to check ceilometer statistics. Returns the statistic of
+the chosen meter. This also returns the age of the last sample used to
+aggregate. So this check can also be used to verify freshness of samples in
+the ceilometer DB. (or of course to check the value).
+
+
+```
+  -m METER_NAME, --meter METER_NAME
+                        meter name (required)
+  -t VALUE, --tframe VALUE
+                        Time frame to look back in minutes
+  --tzone TZONE         Timezone to use. Ceilometer does not store any
+                        timezone information with the samples.
+  -w RANGE, --warn RANGE
+                        return warning if value is outside RANGE (default: 0:,
+                        never warn)
+  -c RANGE, --critical RANGE
+                        return critical if value is outside RANGE (default 0:,
+                        never critical)
+  --warn_count RANGE    return warning if the number of samples is outside
+                        RANGE (default: 0:, never warn
+  --critical_count RANGE
+                        return critical if the number of samples is outside
+                        RANGE (default: 0:, never critical
+  --warn_age RANGE      return warning if the age in minutes of the last value
+                        is outside RANGE (default: 0:30, warn if older than 30
+                        minutes
+  --critical_age RANGE  return critical if the age in minutes of the last
+                        value is outside RANGE (default: 0:60, critical if
+                        older than 1 hour
+  --aggregate AGGREGATE
+                        Aggregate function to use. Can be one of avg or sum
+                        (avg is the default)
+```
+
+check\_keystone-token
+--------------------
+
+Nagios/Icinga plugin to check keystone. The check will get a token and mesure the
+time used.
+
+```
+  -w RANGE, --warn RANGE
+                        return warning if number of up agents is outside RANGE
+                        (default: 0:, never warn)
+  -c RANGE, --critical RANGE
+                        return critical if number of up agents is outside
+                        RANGE (default 1:, never critical)
+```
+

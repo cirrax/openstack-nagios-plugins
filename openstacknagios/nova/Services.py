@@ -45,6 +45,7 @@ class NovaServices(osnag.Resource):
                             self.openstack['password'], 
                             self.openstack['tenant_name'],
                             auth_url    = self.openstack['auth_url'],
+                            cacert      = self.openstack['cacert'],
                             insecure    = self.openstack['insecure'])
         except Exception as e:
            self.exit_error(str(e))
@@ -105,7 +106,7 @@ def main():
         osnag.ScalarContext('total', '0:', '@0'),
         osnag.Summary(show=['up','disabled','down','total'])
         )
-    check.main(verbose=args.verbose)
+    check.main(verbose=args.verbose,  timeout=args.timeout)
 
 if __name__ == '__main__':
     main()

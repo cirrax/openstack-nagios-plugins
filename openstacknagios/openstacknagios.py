@@ -40,7 +40,7 @@ class Resource(NagiosResource):
 
     def get_openstack_vars(self,args=None):
 
-       os_vars = dict(username='', password='',tenant_name='',auth_url='')
+       os_vars = dict(username='', password='',tenant_name='',auth_url='', cacert='')
 
        if args.filename:
           config = ConfigParser.RawConfigParser()
@@ -87,7 +87,7 @@ class Summary(NagiosSummary):
 
 class ArgumentParser(ArgArgumentParser):
 
-    def __init__(self,description, epilog='Admin rights are necessary to run this check.'):
+    def __init__(self,description, epilog=''):
         ArgArgumentParser.__init__(self,description=description, epilog=epilog)
 
         self.add_argument('--filename',
@@ -95,6 +95,8 @@ class ArgumentParser(ArgArgumentParser):
         self.add_argument('-v', '--verbose', action='count', default=0,
                       help='increase output verbosity (use up to 3 times)'
                            '(not everywhere implemented)')
+        self.add_argument('--timeout', type=int, default=10,
+                      help='amount of seconds until execution stops with unknow state (default 10 seconds)')
         self.add_argument('--insecure',
                       default=False,
                       action='store_true',
@@ -102,5 +104,6 @@ class ArgumentParser(ArgArgumentParser):
                            "SSL (https) requests. The server's certificate will "
                            "not be verified against any certificate authorities. "
                            "This option should be used with caution.")
-
-
+        self.add_argument('--cacert',
+                      help="Specify a CA bundle file to use in verifying a TLS"
+                           "(https) server certificate.")
