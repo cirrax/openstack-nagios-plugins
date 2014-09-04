@@ -75,6 +75,7 @@ setup(
         'python-keystoneclient', 
         'python-neutronclient', 
         'python-cinderclient',
+        'python-ceilometerclient',
     ],
 
     # To provide executable scripts, use entry points in preference to the
@@ -87,6 +88,7 @@ setup(
             'check_cinder-services=openstacknagios.cinder.Services:main',
             'check_neutron-agents=openstacknagios.neutron.Agents:main',
             'check_neutron-floatingips=openstacknagios.neutron.Floatingips:main',
+            'check_ceilometer-statistics=openstacknagios.ceilometer.Statistics:main',
         ],
     },
 )
