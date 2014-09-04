@@ -47,9 +47,13 @@ class Resource(NagiosResource):
           config.read(args.filename)
           try:
             for r in os_vars.keys():
-               os_vars[r]    = config.get('DEFAULT', r)
+               try:
+                 os_vars[r]    = config.get('DEFAULT', r )
+               except:
+                 os_vars[r]    = None
+
           except Exception as e:
-            self.exit_error(str(e) + ' Filename: ' + filename)
+            self.exit_error(str(e) + ' Filename: ' + args.filename)
           
        else:
           try: 
