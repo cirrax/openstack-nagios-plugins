@@ -1,3 +1,10 @@
+openstacknagios (1.0.3-1) unstable; urgency=low
+
+  * Fix ceilometer statistic for ssl
+  * Fix long timestam in ceilometer statistic
+
+ -- Benedikt Trefzer <benedikt.trefzer@cirrax.com>  Mon, 11 Sep 2014 16:43:33 +0200
+
 openstacknagios (1.0.2-1) unstable; urgency=low
 
   * Fix filename usage
