@@ -66,7 +66,7 @@ class CeilometerStatistics(osnag.Resource):
         try:
            ceilometer = ceilclient.Client(endpoint = keystone.service_catalog.url_for(endpoint_type='public',service_type='metering'),
                                           token        = lambda: keystone.auth_token,
-                                          ca_cert      = self.openstack['cacert'],
+                                          cacert       = self.openstack['cacert'],
                                           insecure     = self.openstack['insecure'])
         except Exception as e:
            self.exit_error('cannot start ceil ' + str(e))
