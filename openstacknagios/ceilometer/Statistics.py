@@ -86,7 +86,7 @@ class CeilometerStatistics(osnag.Resource):
            self.exit_error('cannot load: ' + str(e))
 
         for t in teste :
-           period_end=self.tzone.localize(datetime.datetime.strptime(getattr(t,'period_end',''),date_format))
+           period_end=self.tzone.localize(datetime.datetime.strptime(getattr(t,'period_end','')[:19],date_format))
            age = now - period_end
            yield osnag.Metric('count', getattr(t,'count',''),uom='samples')
            yield osnag.Metric('age', age.total_seconds()/60, uom='m' )
