@@ -240,3 +240,10 @@ time used.
                         RANGE (default 1:, never critical)
 ```
 
+check\_rally-results
+-------------------
+
+Nagios/Icinga plugin to check rally results. Takes the outpup of 'rally task
+results' as input on stdin. and calculates the sum of load- and full- duration
+and the number of failed scenarios.
+
