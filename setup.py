@@ -14,7 +14,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='1.0.3',
+    version='1.0.4',
 
     description='nagios/icinga plugins to monitor an openstack installation',
     long_description=long_description,
@@ -90,6 +90,7 @@ setup(
             'check_neutron-floatingips=openstacknagios.neutron.Floatingips:main',
             'check_keystone-token=openstacknagios.keystone.Token:main',
             'check_ceilometer-statistics=openstacknagios.ceilometer.Statistics:main',
+            'check_rally-results=openstacknagios.rally.Results:main',
         ],
     },
 )
