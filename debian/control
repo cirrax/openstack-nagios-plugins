@@ -3,7 +3,7 @@ Maintainer: Benedikt Trefzer <benedikt.trefzer@cirrax.com>
 Section: python
 Priority: optional
 Build-Depends: python-setuptools (>= 0.6b3), python-all (>= 2.6.6-3), debhelper (>= 7.4.3)
-Standards-Version: 3.9.1
+Standards-Version: 3.9.4
 
 Package: python-openstacknagios
 Architecture: all
