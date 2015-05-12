@@ -1,3 +1,11 @@
+openstacknagios (1.0.4-1) unstable; urgency=medium
+
+  * initial rally check
+  * update debian standards to 3.9.4
+  * add debian copyright file
+
+ -- Benedikt Trefzer <benedikt.trefzer@cirrax.com>  Fri, 08 May 2015 10:31:33 +0200
+
 openstacknagios (1.0.3-1) unstable; urgency=low
 
   * Fix ceilometer statistic for ssl
