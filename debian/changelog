@@ -1,3 +1,9 @@
+openstacknagios (1.0.5-1) unstable; urgency=medium
+
+  * add resultfile parameter to rally check
+
+ -- Benedikt Trefzer <benedikt.trefzer@cirrax.com>  Tue, 12 May 2015 14:51:29 +0200
+
 openstacknagios (1.0.4-1) unstable; urgency=medium
 
   * initial rally check
