@@ -34,7 +34,17 @@ class RallyResults(osnag.Resource):
     """
 
     def __init__(self, args=None):
-        self.results=json.load(sys.stdin)
+        if args.resultfile:
+            infile = open(args.resultfile, 'r')
+
+            with infile:
+                try:
+                    self.results=json.load(infile)
+                except ValueError:
+                    raise SystemExit(sys.exc_info()[1])
+        else:
+            self.results=json.load(sys.stdin)
+
         osnag.Resource.__init__(self)
 
     def probe(self):
@@ -67,6 +77,9 @@ class RallyResults(osnag.Resource):
 @osnag.guarded
 def main():
     argp = osnag.ArgumentParser(description=__doc__)
+
+    argp.add_argument('--resultfile',
+                      help='file to read results from (output of rally task results) if not specified, stdin is used.' )
 
     argp.add_argument('-w', '--warn', metavar='RANGE', default=':0',
                       help='return warning if error counter is outside RANGE (default: :0, warn if any errors)')
