@@ -19,7 +19,7 @@
 """
   Nagios/Icinga plugin to check rally results.
 
-  Takes the outpup of 'rally task results' as input on stdin.
+  Takes the output of 'rally task results' as input on stdin.
   and calculates the sum of load- and full_duration and the number
   of failed scenarios.
 
