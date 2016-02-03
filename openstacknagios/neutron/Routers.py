@@ -32,7 +32,7 @@ from neutronclient.neutron import client
 
 class NeutronRouters(osnag.Resource):
     """
-    Determines the number of assigned (used and unused) floating ip's
+    Determines the number down/build/active routers
 
     """
 
