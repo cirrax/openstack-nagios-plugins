@@ -88,6 +88,7 @@ setup(
             'check_cinder-services=openstacknagios.cinder.Services:main',
             'check_neutron-agents=openstacknagios.neutron.Agents:main',
             'check_neutron-floatingips=openstacknagios.neutron.Floatingips:main',
+            'check_neutron-routers=openstacknagios.neutron.Routers:main',
             'check_keystone-token=openstacknagios.keystone.Token:main',
             'check_ceilometer-statistics=openstacknagios.ceilometer.Statistics:main',
             'check_rally-results=openstacknagios.rally.Results:main',
