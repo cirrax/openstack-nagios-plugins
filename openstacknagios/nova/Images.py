@@ -60,9 +60,9 @@ def main():
     argp = osnag.ArgumentParser(description=__doc__)
 
     argp.add_argument('-w', '--warn', metavar='RANGE', default='0:',
-                      help='return warning if number of up agents is outside RANGE (default: 0:, never warn)')
+                      help='return warning if repsonse time is outside RANGE (default: 0:, never warn)')
     argp.add_argument('-c', '--critical', metavar='RANGE', default='0:',
-                      help='return critical if number of up agents is outside RANGE (default 1:, never critical)')
+                      help='return critical if repsonse time is outside RANGE (default 1:, never critical)')
 
     args = argp.parse_args()
 
