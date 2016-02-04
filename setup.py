@@ -83,6 +83,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
+            'check_nova-images=openstacknagios.nova.Images:main',
             'check_nova-services=openstacknagios.nova.Services:main',
             'check_nova-hypervisors=openstacknagios.nova.Hypervisors:main',
             'check_cinder-services=openstacknagios.cinder.Services:main',
