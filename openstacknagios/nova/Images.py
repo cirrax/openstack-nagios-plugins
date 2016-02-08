@@ -16,8 +16,7 @@
 #  
 
 """
-    Nagios/Icinga plugin to check running nova images.
-
+    Nagios plugin to check running nova images.
     This corresponds to the output of 'nova image-list'.
 """
 
