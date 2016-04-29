@@ -83,11 +83,13 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
         'console_scripts': [
+            'check_nova-images=openstacknagios.nova.Images:main',
             'check_nova-services=openstacknagios.nova.Services:main',
             'check_nova-hypervisors=openstacknagios.nova.Hypervisors:main',
             'check_cinder-services=openstacknagios.cinder.Services:main',
             'check_neutron-agents=openstacknagios.neutron.Agents:main',
             'check_neutron-floatingips=openstacknagios.neutron.Floatingips:main',
+            'check_neutron-routers=openstacknagios.neutron.Routers:main',
             'check_keystone-token=openstacknagios.keystone.Token:main',
             'check_ceilometer-statistics=openstacknagios.ceilometer.Statistics:main',
             'check_rally-results=openstacknagios.rally.Results:main',
