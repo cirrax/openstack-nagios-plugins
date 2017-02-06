@@ -91,7 +91,7 @@ class CeilometerStatistics(osnag.Resource):
            yield osnag.Metric('count', getattr(t,'count',''),uom='samples')
            yield osnag.Metric('age', age.total_seconds()/60, uom='m' )
            yield osnag.Metric('value', getattr(t,self.aggregate,''),
-                               min=float(getattr(t,'min','')),
+                               min=getattr(t,'min',''),
                                max=getattr(t,'max',''),
                                uom=getattr(t,'unit',''))
 
