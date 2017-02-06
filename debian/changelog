@@ -1,3 +1,11 @@
+openstacknagios (1.1.0-1) unstable; urgency=medium
+
+  * new checks (check_nova-images, check_neutron-routers)
+  * fix ceilometer meters check
+  * debian compat to 9 (was 7)
+
+ -- Benedikt Trefzer <benedikt.trefzer@cirrax.com>  Mon, 06 Feb 2017 10:36:57 +0100
+
 openstacknagios (1.0.5-1) unstable; urgency=medium
 
   * add resultfile parameter to rally check
