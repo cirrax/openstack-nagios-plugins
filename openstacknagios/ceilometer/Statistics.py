@@ -75,7 +75,7 @@ class CeilometerStatistics(osnag.Resource):
    
         tstart=now - self.tframe
         query=[]
-        query.append({'field': 'start','op':'eq','value':tstart.strftime(date_format)})
+        query.append({'field': 'timestamp','op':'gt','value':tstart.strftime(date_format)})
 
         try:
            teste=ceilometer.statistics.list(self.meter, q=query)
