@@ -3,6 +3,11 @@ openstack-nagios-plugins
 
 Nagios/icinga plugins to monitor an openstack installation.
 
+Find also some information about these plugins in the talk
+[Monitoring an Openstack Cluster with icinga/nagios](https://www.cirrax.com/downloads/2015_OpenstackMonitoring.pdf)
+held at the 11th Swiss OpenStack User Group Meetup by [Cirrax](https://www.cirrax.com).
+
+
 For all checks there are some common arguments:
 
 ```
