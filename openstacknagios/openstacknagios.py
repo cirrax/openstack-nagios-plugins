@@ -95,16 +95,16 @@ class ArgumentParser(ArgArgumentParser):
         ArgArgumentParser.__init__(self,description=description, epilog=epilog)
 
         self.add_argument('--filename',
-                      help='file to read openstack credentials from. If not set it take the environemnt variables' )
+                      help='file to read openstack credentials from. If not set it take the environment variables' )
         self.add_argument('-v', '--verbose', action='count', default=0,
                       help='increase output verbosity (use up to 3 times)'
                            '(not everywhere implemented)')
         self.add_argument('--timeout', type=int, default=10,
-                      help='amount of seconds until execution stops with unknow state (default 10 seconds)')
+                      help='amount of seconds until execution stops with unknown state (default 10 seconds)')
         self.add_argument('--insecure',
                       default=False,
                       action='store_true',
-                      help="Explicitly allow novaclient to perform \"insecure\" "
+                      help="Explicitly allow client to perform \"insecure\" "
                            "SSL (https) requests. The server's certificate will "
                            "not be verified against any certificate authorities. "
                            "This option should be used with caution.")
