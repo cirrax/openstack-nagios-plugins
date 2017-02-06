@@ -252,3 +252,12 @@ Nagios/Icinga plugin to check rally results. Takes the outpup of 'rally task
 results' as input on stdin. and calculates the sum of load- and full- duration
 and the number of failed scenarios.
 
+check_nova-images
+-----------------
+
+Lists nova images and gets timing
+
+check_neutron-routers
+---------------------
+
+Determines the number down/build/active routers
