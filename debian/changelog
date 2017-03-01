@@ -1,3 +1,9 @@
+openstacknagios (1.1.0-2) unstable; urgency=medium
+
+  * recompile for stretch
+
+ -- Benedikt Trefzer <benedikt.trefzer@cirrax.com>  Wed, 01 Mar 2017 09:03:00 +0100
+
 openstacknagios (1.1.0-1) unstable; urgency=medium
 
   * new checks (check_nova-images, check_neutron-routers)
