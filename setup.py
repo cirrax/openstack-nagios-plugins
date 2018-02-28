@@ -78,6 +78,7 @@ setup(
         'python-cinderclient',
         'python-ceilometerclient',
         'pankoclient',
+        'gnocchiclient',
     ],
 
     # To provide executable scripts, use entry points in preference to the
@@ -97,6 +98,7 @@ setup(
             'check_ceilometer-statistics=openstacknagios.ceilometer.Statistics:main',
             'check_panko-events=openstacknagios.panko.Events:main',
             'check_rally-results=openstacknagios.rally.Results:main',
+            'check_gnocchi-status=openstacknagios.gnocchi.Status:main',
         ],
     },
 )
