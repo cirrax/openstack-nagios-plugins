@@ -23,6 +23,9 @@ from nagiosplugin import Metric
 from nagiosplugin import guarded
 from nagiosplugin import ScalarContext
 
+from keystoneauth1 import loading
+from keystoneauth1 import session
+
 from argparse import ArgumentParser    as ArgArgumentParser
 
 from os import environ as env
@@ -64,6 +67,20 @@ class Resource(NagiosResource):
 
        os_vars['insecure']=args.insecure
        return os_vars
+
+    def get_session(self):
+       loader = loading.get_plugin_loader('password')
+       auth = loader.load_from_options(auth_url            = self.openstack['auth_url'],
+                                       username            = self.openstack['username'],
+                                       password            = self.openstack['password'],
+                                       project_name        = self.openstack['tenant_name'],
+                                       user_domain_name    = 'Default',
+                                       project_domain_name = 'Default',
+                                       )
+
+       return  session.Session(auth   = auth,
+                               verify = self.openstack['cacert'],
+               )
 
     def exit_error(self, text):
        print 'UNKNOWN - ' + text

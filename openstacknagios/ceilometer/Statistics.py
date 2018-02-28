@@ -27,7 +27,6 @@
 
 import openstacknagios.openstacknagios as osnag
 
-import keystoneclient.v2_0.client as ksclient
 import ceilometerclient.v2.client as ceilclient
 
 import datetime 
@@ -53,21 +52,10 @@ class CeilometerStatistics(osnag.Resource):
 
     def probe(self):
         try:
-           keystone=ksclient.Client(username    = self.openstack['username'],
-                                    password    = self.openstack['password'],
-                                    tenant_name = self.openstack['tenant_name'],
-                                    auth_url    = self.openstack['auth_url'],
-                                    cacert      = self.openstack['cacert'],
-                                    insecure    = self.openstack['insecure'])
-        except Exception as e:
-           self.exit_error('cannot get token ' + str(e))
-
-
-        try:
-           ceilometer = ceilclient.Client(endpoint = keystone.service_catalog.url_for(endpoint_type='public',service_type='metering'),
-                                          token        = lambda: keystone.auth_token,
-                                          cacert       = self.openstack['cacert'],
-                                          insecure     = self.openstack['insecure'])
+           ceilometer = ceilclient.Client(
+                                          session  = self.get_session(),
+                                          cacert   = self.openstack['cacert'],
+                                          insecure = self.openstack['insecure'])
         except Exception as e:
            self.exit_error('cannot start ceil ' + str(e))
 

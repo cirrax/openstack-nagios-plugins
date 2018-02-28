@@ -41,12 +41,11 @@ class CinderServices(osnag.Resource):
     def probe(self):
 
         try:
-           cinder=Client('2', self.openstack['username'],
-                              self.openstack['password'], 
-                              self.openstack['tenant_name'], 
-                              self.openstack['auth_url'],
-                              insecure=self.openstack['insecure'],
-                              cacert=self.openstack['cacert'])
+           cinder=Client( '2',
+                          session  = self.get_session(),
+                          insecure = self.openstack['insecure'],
+                          cacert   = self.openstack['cacert'],
+                        )
         except Exception as e:
            self.exit_error(str(e))
 

@@ -25,8 +25,6 @@
 
 import openstacknagios.openstacknagios as osnag
 
-import keystoneclient.v2_0.client as ks
-
 from neutronclient.neutron import client
 
 
@@ -42,21 +40,8 @@ class NeutronRouters(osnag.Resource):
 
     def probe(self):
         try:
-            k = ks.Client(username=self.openstack['username'],
-                          password=self.openstack['password'],
-                          tenant_name=self.openstack['tenant_name'],
-                          auth_url=self.openstack['auth_url'],
-                          cacert=self.openstack['cacert'],
-                          insecure=self.openstack['insecure'])
-        except Exception as e:
-            self.exit_error('cannot get token ' + str(e))
-         
-        try:
             neutron = client.Client('2.0',
-                                    endpoint_url=k.service_catalog.url_for(
-                                        endpoint_type='public',
-                                        service_type='network'),
-                                    token=k.auth_token, 
+                                    session=self.get_session(),
                                     ca_cert=self.openstack['cacert'],
                                     insecure=self.openstack['insecure'])
         except Exception as e:

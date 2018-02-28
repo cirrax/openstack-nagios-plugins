@@ -37,12 +37,10 @@ class NovaHypervisors(osnag.Resource):
 
     def probe(self):
         try:
-           nova=Client('2', self.openstack['username'],
-                            self.openstack['password'], 
-                            self.openstack['tenant_name'],
-                            auth_url    = self.openstack['auth_url'],
-                            cacert      = self.openstack['cacert'],
-                            insecure    = self.openstack['insecure'])
+           nova=Client('2',
+                       session  = self.get_session(),
+                       cacert   = self.openstack['cacert'],
+                       insecure = self.openstack['insecure'])
 
         except Exception as e:
            self.exit_error(str(e))

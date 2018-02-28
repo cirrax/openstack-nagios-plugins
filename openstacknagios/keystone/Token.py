@@ -42,12 +42,9 @@ class KeystoneToken(osnag.Resource):
     def probe(self):
         start = time.time()
         try:
-           keystone=ksclient.Client(username    = self.openstack['username'],
-                                    password    = self.openstack['password'],
-                                    tenant_name = self.openstack['tenant_name'],
-                                    auth_url    = self.openstack['auth_url'],
-                                    cacert      = self.openstack['cacert'],
-                                    insecure    = self.openstack['insecure'])
+           keystone=ksclient.Client(session  = self.get_session(),
+                                    cacert   = self.openstack['cacert'],
+                                    insecure = self.openstack['insecure'])
         except Exception as e:
            self.exit_error('cannot get token')
 
