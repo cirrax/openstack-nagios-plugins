@@ -26,7 +26,8 @@ import json
 import time
 import openstacknagios.openstacknagios as osnag
 
-import keystoneclient.v2_0.client as ksclient
+import keystoneclient.v2_0.client as ksclient2
+import keystoneclient.v3.client as ksclient3
 
 
 class KeystoneToken(osnag.Resource):
@@ -37,32 +38,44 @@ class KeystoneToken(osnag.Resource):
 
     def __init__(self, args=None):
         self.openstack = self.get_openstack_vars(args=args)
+        self.tversion = args.tversion
+
         osnag.Resource.__init__(self)
 
     def probe(self):
         start = time.time()
-        try:
-           keystone=ksclient.Client(session  = self.get_session(),
-                                    cacert   = self.openstack['cacert'],
-                                    insecure = self.openstack['insecure'])
-        except Exception as e:
-           self.exit_error('cannot get token')
+        if self.tversion == '2':
+          try:
+            keystone=ksclient3.Client(session  = self.get_session(),
+                                      cacert   = self.openstack['cacert'],
+                                      insecure = self.openstack['insecure'])
+          except Exception as e:
+            self.exit_error('cannot get token')
+        elif self.tversion == '3':
+          try:
+            keystone=ksclient3.Client(session  = self.get_session(),
+                                      cacert   = self.openstack['cacert'],
+                                      insecure = self.openstack['insecure'])
+          except Exception as e:
+            self.exit_error('cannot get token')
+        else:
+          self.exit_error('unknown token-version ' + self.tversion)
 
         get_time = time.time()
 
         yield osnag.Metric('gettime', get_time-start, min=0)
-
-
 
          
 @osnag.guarded
 def main():
     argp = osnag.ArgumentParser(description=__doc__)
 
+    argp.add_argument('--tversion', metavar='TOKENVERSION', default='2',
+            help='the version of the keystoneclient to use to verify the token. currently supported is 3 and 2 (default 2)')
     argp.add_argument('-w', '--warn', metavar='RANGE', default='0:',
-                      help='return warning if number of up agents is outside RANGE (default: 0:, never warn)')
+            help='return warning if number of up agents is outside RANGE (default: 0:, never warn)')
     argp.add_argument('-c', '--critical', metavar='RANGE', default='0:',
-                      help='return critical if number of up agents is outside RANGE (default 1:, never critical)')
+            help='return critical if number of up agents is outside RANGE (default 1:, never critical)')
 
     args = argp.parse_args()
 
