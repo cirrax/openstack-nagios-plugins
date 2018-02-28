@@ -77,6 +77,7 @@ setup(
         'python-neutronclient', 
         'python-cinderclient',
         'python-ceilometerclient',
+        'pankoclient',
     ],
 
     # To provide executable scripts, use entry points in preference to the
@@ -94,6 +95,7 @@ setup(
             'check_neutron-routers=openstacknagios.neutron.Routers:main',
             'check_keystone-token=openstacknagios.keystone.Token:main',
             'check_ceilometer-statistics=openstacknagios.ceilometer.Statistics:main',
+            'check_panko-events=openstacknagios.panko.Events:main',
             'check_rally-results=openstacknagios.rally.Results:main',
         ],
     },
