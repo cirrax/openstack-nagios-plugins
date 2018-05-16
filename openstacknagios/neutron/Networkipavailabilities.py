@@ -19,8 +19,9 @@
 """
 
 import openstacknagios.openstacknagios as osnag
-import keystoneclient.v2_0.client as ksclient
-from neutronclient.neutron import client
+from keystoneauth1 import identity
+from keystoneauth1 import session
+from neutronclient.v2_0 import client
 
 class NeutronNetworkipavailabilities(osnag.Resource):
     """
@@ -35,20 +36,18 @@ class NeutronNetworkipavailabilities(osnag.Resource):
 
     def probe(self):
         try:
-            keystone=ksclient.Client(username    = self.openstack['username'],
-                                    password    = self.openstack['password'],
-                                    tenant_name = self.openstack['tenant_name'],
-                                    auth_url    = self.openstack['auth_url'],
-                                    cacert      = self.openstack['cacert'],
-                                    insecure    = self.openstack['insecure'])
+            auth = identity.Password(username=self.openstack['username'],
+                                     password=self.openstack['password'],
+                                     project_name=self.openstack['project_name'],
+                                     user_domain_name=self.openstack['user_domain_name'],
+                                     project_domain_name=self.openstack['project_domain_name'],
+                                     auth_url=self.openstack['auth_url'])
+            sess = session.Session(auth=auth)
         except Exception as e:
             self.exit_error('cannot get token ' + str(e))
-         
+
         try:
-            neutron = client.Client('2.0', endpoint_url = keystone.service_catalog.url_for(endpoint_type='public',service_type='network'),
-                                          token        = keystone.auth_token, 
-                                          ca_cert      = self.openstack['cacert'],
-                                          insecure     = self.openstack['insecure'])
+            neutron = client.Client(session=sess)
         except Exception as e:
             self.exit_error('cannot load ' + str(e))
 

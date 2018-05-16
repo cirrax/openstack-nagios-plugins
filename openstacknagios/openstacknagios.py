@@ -40,7 +40,8 @@ class Resource(NagiosResource):
 
     def get_openstack_vars(self,args=None):
 
-       os_vars = dict(username='', password='',tenant_name='',auth_url='', cacert='')
+       os_vars = dict(username='', password='',auth_url='', cacert='', user_domain_name='', project_domain_name='',
+                      project_name='')
 
        if args.filename:
           config = ConfigParser.RawConfigParser()
@@ -54,9 +55,9 @@ class Resource(NagiosResource):
 
           except Exception as e:
             self.exit_error(str(e) + ' Filename: ' + args.filename)
-          
+
        else:
-          try: 
+          try:
             for r in os_vars.keys():
                os_vars[r]    = env['OS_' + r.upper()]
           except Exception as e:
