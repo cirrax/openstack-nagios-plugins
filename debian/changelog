@@ -1,3 +1,10 @@
+openstacknagios (1.1.1-1) unstable; urgency=medium
+
+  * new version 1.1.1
+  * add rule to extract source
+
+ -- Benedikt Trefzer <benedikt.trefzer@cirrax.com>  Thu, 04 Oct 2018 10:28:35 +0200
+
 openstacknagios (1.1.0-2) unstable; urgency=medium
 
   * recompile for stretch
