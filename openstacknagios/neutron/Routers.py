@@ -73,13 +73,13 @@ def main():
     argp.add_argument('-w', '--warn', metavar='RANGE', default='0:',
                       help="""return warning if number of down routers is
                       greater than (default: 0)""")
-    argp.add_argument('-c', '--critical', metavar='RANGE', default='10:',
+    argp.add_argument('-c', '--critical', metavar='RANGE', default=':10',
                       help="""return critical if number of down routers is
                       greater than (default: 10) """)
     argp.add_argument('--warn_build', metavar='RANGE', default='0:',
                       help="""return warning if number of building routers is
                       greater than (default: 0)""")
-    argp.add_argument('--critical_build', metavar='RANGE', default='10:',
+    argp.add_argument('--critical_build', metavar='RANGE', default=':10',
                       help="""return critical if number of building routers
                       is greater than (default: 10) """)
 
