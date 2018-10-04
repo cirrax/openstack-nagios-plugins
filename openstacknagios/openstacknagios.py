@@ -61,7 +61,10 @@ class Resource(NagiosResource):
        else:
           try: 
             for r in os_vars.keys():
-               os_vars[r]    = env['OS_' + r.upper()]
+               try:
+                 os_vars[r]    = env['OS_' + r.upper()]
+               except:
+                 os_vars[r]    = None
           except Exception as e:
             self.exit_error('missing environment variable ' + str(e))
 
