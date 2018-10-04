@@ -43,7 +43,7 @@ class Resource(NagiosResource):
 
     def get_openstack_vars(self,args=None):
 
-       os_vars = dict(username='', password='',tenant_name='',auth_url='', cacert='')
+       os_vars = dict(username='', password='',project_name='',auth_url='', cacert='', user_domain_name='', project_domain_name='')
 
        if args.filename:
           config = ConfigParser.RawConfigParser()
@@ -76,9 +76,9 @@ class Resource(NagiosResource):
        auth = loader.load_from_options(auth_url            = self.openstack['auth_url'],
                                        username            = self.openstack['username'],
                                        password            = self.openstack['password'],
-                                       project_name        = self.openstack['tenant_name'],
-                                       user_domain_name    = 'Default',
-                                       project_domain_name = 'Default',
+                                       project_name        = self.openstack['project_name'],
+                                       user_domain_name    = self.openstack['user_domain_name'],
+                                       project_domain_name = self.openstack['project_domain_name'],
                                        )
 
        return  session.Session(auth   = auth,
