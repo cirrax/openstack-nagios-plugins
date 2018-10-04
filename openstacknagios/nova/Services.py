@@ -41,9 +41,11 @@ class NovaServices(osnag.Resource):
     def probe(self):
 
         try:
-           nova=Client('2', self.openstack['username'], 
-                            self.openstack['password'], 
-                            self.openstack['tenant_name'],
+           nova=Client('2', self.openstack['username'],
+                            self.openstack['password'],
+                            project_name=self.openstack['project_name'],
+                            user_domain_name=self.openstack['user_domain_name'],
+                            project_domain_name=self.openstack['project_domain_name'],
                             auth_url    = self.openstack['auth_url'],
                             cacert      = self.openstack['cacert'],
                             insecure    = self.openstack['insecure'])

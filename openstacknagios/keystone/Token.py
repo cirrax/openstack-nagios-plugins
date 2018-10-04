@@ -44,10 +44,12 @@ class KeystoneToken(osnag.Resource):
         try:
            keystone=ksclient.Client(username    = self.openstack['username'],
                                     password    = self.openstack['password'],
-                                    tenant_name = self.openstack['tenant_name'],
-                                    auth_url    = self.openstack['auth_url'],
-                                    cacert      = self.openstack['cacert'],
-                                    insecure    = self.openstack['insecure'])
+                                    project_name=self.openstack['project_name'],
+                                    user_domain_name=self.openstack['user_domain_name'],
+                                    project_domain_name=self.openstack['project_domain_name'],
+                                    auth_url=self.openstack['auth_url'],
+                                    cacert=self.openstack['cacert'],
+                                    insecure=self.openstack['insecure'])
         except Exception as e:
            self.exit_error('cannot get token')
 
