@@ -72,25 +72,25 @@ def main():
                       help='return critical if number of running vms is outside RANGE (default 0:, never critical)')
 
     argp.add_argument('--warn_memory', metavar='RANGE', default='0:',
-                      help='return warning if number of disabled agents is outside RANGE (default: 0:, never warn')
+                      help='return warning if used memory is outside RANGE (default: 0:, never warn')
     argp.add_argument('--critical_memory', metavar='RANGE', default='0:',
-                      help='return critical if number of disabled agents is outside RANGE (default: 0:, never critical')
+                      help='return critical if used memory is outside RANGE (default: 0:, never critical')
 
     argp.add_argument('--warn_memory_percent', metavar='RANGE', default='0:90',
-                      help='return warning if number of disabled agents is outside percent RANGE (default: 0:90, warn if 90%% of memory is used')
+                      help='return warning if used memory is outside percent RANGE (default: 0:90, warn if 90%% of memory is used')
 
     argp.add_argument('--critical_memory_percent', metavar='RANGE', default='0:95',
-                      help='return critical if number of disabled agents is outside percent RANGE (default: 0:90, critical if 95%% of memory is used')
+                      help='return critical if used memory is outside percent RANGE (default: 0:90, critical if 95%% of memory is used')
 
     argp.add_argument( '--warn_vcpus', metavar='RANGE', default='0:',
-                      help='return warning if number of down agents is outside RANGE (default: 0:, never warn)')
+                      help='return warning if used vcpus is outside RANGE (default: 0:, never warn)')
     argp.add_argument( '--critical_vcpus', metavar='RANGE', default='0:',
-                      help='return critical if number of down agents is outside RANGE (default: 0, always critical if any')
+                      help='return critical if used vcpus is outside RANGE (default: 0, always critical if any')
 
     argp.add_argument( '--warn_vcpus_percent', metavar='RANGE', default='0:90',
-                      help='return warning if number of down agents is outside RANGE (default: 0:90, warn if 90%% of vcpus are used)')
+                      help='return warning if used vcpus is outside percent RANGE (default: 0:90, warn if 90%% of vcpus are used)')
     argp.add_argument( '--critical_vcpus_percent', metavar='RANGE', default='0:95',
-                      help='return critical if number of down agents is outside RANGE (default: 0:95, critical if 95%% of vcpus are used')
+                      help='return critical if used vcpus is outside percent RANGE (default: 0:95, critical if 95%% of vcpus are used')
 
     args = argp.parse_args()
 
