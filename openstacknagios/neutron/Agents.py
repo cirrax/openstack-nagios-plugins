@@ -49,7 +49,14 @@ class NeutronAgents(osnag.Resource):
            self.exit_error('cannot load ' + str(e))
 
         try:
-           result=neutron.list_agents(host=self.host,binary=self.binary)
+           if self.host and self.binary:
+              result=neutron.list_agents(host=self.host,binary=self.binary)
+           elif self.binary:
+              result=neutron.list_agents(binary=self.binary)
+           elif self.host:
+              result=neutron.list_agents(host=self.host)
+           else:
+              result=neutron.list_agents()
         except Exception as e:
            self.exit_error(str(e))
 
