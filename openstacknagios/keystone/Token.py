@@ -46,7 +46,7 @@ class KeystoneToken(osnag.Resource):
         start = time.time()
         if self.tversion == '2':
           try:
-            keystone=ksclient3.Client(session  = self.get_session(),
+            keystone=ksclient2.Client(session  = self.get_session(),
                                       cacert   = self.openstack['cacert'],
                                       insecure = self.openstack['insecure'])
           except Exception as e:
