@@ -49,9 +49,9 @@ def main():
     argp = osnag.ArgumentParser(description=__doc__)
 
     argp.add_argument('-w', '--warn', metavar='RANGE', default='0:100',
-            help='return warning if number of measures to process range (default: 0:100)')
+            help='return warning if number of measures to process is out of range (default: 0:100)')
     argp.add_argument('-c', '--critical', metavar='range', default='0:200',
-            help='return critical if number of measures to process range range (default 0:200)')
+            help='return critical if number of measures to process is out of range (default 0:200)')
 
     argp.add_argument('--warn_metrics', metavar='RANGE', default='0:100',
                       help='return warning if number of metrics having measures to process outside RANGE (default: 0:100')
