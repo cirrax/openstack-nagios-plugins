@@ -70,8 +70,8 @@ class KeystoneToken(osnag.Resource):
 def main():
     argp = osnag.ArgumentParser(description=__doc__)
 
-    argp.add_argument('--tversion', metavar='TOKENVERSION', default='2',
-            help='the version of the keystoneclient to use to verify the token. currently supported is 3 and 2 (default 2)')
+    argp.add_argument('--tversion', metavar='TOKENVERSION', default='3',
+            help='the version of the keystoneclient to use to verify the token. currently supported is 3 and 2 (default 3)')
     argp.add_argument('-w', '--warn', metavar='RANGE', default='0:',
             help='return warning if number of up agents is outside RANGE (default: 0:, never warn)')
     argp.add_argument('-c', '--critical', metavar='RANGE', default='0:',
