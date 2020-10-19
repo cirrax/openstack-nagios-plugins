@@ -99,6 +99,7 @@ setup(
             'check_panko-events=openstacknagios.panko.Events:main',
             'check_rally-results=openstacknagios.rally.Results:main',
             'check_gnocchi-status=openstacknagios.gnocchi.Status:main',
+            'check_gnocchi-measures=openstacknagios.gnocchi.Measures:main',
         ],
     },
 )

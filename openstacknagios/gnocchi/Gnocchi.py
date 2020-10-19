@@ -34,6 +34,7 @@ class Gnocchi(osnag.Resource):
 
     def __init__(self, args=None):
         self.openstack = self.get_openstack_vars(args=args)
+        self.args = args
         osnag.Resource.__init__(self)
 
     def get_client(self):
