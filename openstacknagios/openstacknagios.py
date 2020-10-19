@@ -31,7 +31,7 @@ from argparse import ArgumentParser    as ArgArgumentParser
 from os import environ as env
 import sys
 
-import ConfigParser
+import configparser
 
 
 class Resource(NagiosResource):
@@ -46,7 +46,7 @@ class Resource(NagiosResource):
        os_vars = dict(username='', password='',project_name='',auth_url='', cacert='', user_domain_name='', project_domain_name='')
 
        if args.filename:
-          config = ConfigParser.RawConfigParser()
+          config = configparser.RawConfigParser()
           config.read(args.filename)
           try:
             for r in os_vars.keys():
@@ -86,7 +86,7 @@ class Resource(NagiosResource):
                )
 
     def exit_error(self, text):
-       print 'UNKNOWN - ' + text
+       print('UNKNOWN - {}'.format(text))
        sys.exit(3)
 
 

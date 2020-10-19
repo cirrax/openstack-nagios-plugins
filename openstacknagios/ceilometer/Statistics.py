@@ -84,21 +84,21 @@ class CeilometerStatistics(osnag.Resource):
                                uom=getattr(t,'unit',''))
 
            if self.verbose:
-             print
-             print 'now:            %s' % now.strftime(date_format_tz)
-             print 'query start     %s' % tstart.strftime(date_format_tz)
-             print 'duration_start: %s' % getattr(t,'duration_start','')
-             print 'period_start:   %s' % getattr(t,'period_start','')
-             print 'duration_end:   %s' % getattr(t,'duration_end','')
-             print 'period_end:     %s' % period_end.strftime(date_format_tz)
-             print 'age             %s minutes' % str(age.total_seconds()/60)
-             print 'count:          %s samples' % getattr(t,'count','')
-             print 'min:            %s ' % getattr(t,'min','') + getattr(t,'unit','')
-             print 'max:            %s ' % getattr(t,'max','') + getattr(t,'unit','')
-             print 'duration:       %s minutes' % (int(getattr(t,'duration',''))/60)
-             print 'avg:            %s ' % getattr(t,'avg','') + getattr(t,'unit','')
-             print 'sum:            %s ' % getattr(t,'sum','') + getattr(t,'unit','')
-             print 
+             print()
+             print('now:            {}'.format(now.strftime(date_format_tz)))
+             print('query start     {}'.format(tstart.strftime(date_format_tz)))
+             print('duration_start: {}'.format( getattr(t,'duration_start','')))
+             print('period_start:   {}'.format(getattr(t,'period_start','')))
+             print('duration_end:   {}'.format(getattr(t,'duration_end','')))
+             print('period_end:     {}'.format(period_end.strftime(date_format_tz)))
+             print('age             {} minutes'.format(str(age.total_seconds()/60)))
+             print('count:          {} samples'.format(getattr(t,'count','')))
+             print('min:            {} '.format(getattr(t,'min','') + getattr(t,'unit','')))
+             print('max:            {} '.format(getattr(t,'max','') + getattr(t,'unit','')))
+             print('duration:       {} minutes'.format((int(getattr(t,'duration',''))/60)))
+             print('avg:            {} '.format(getattr(t,'avg','') + getattr(t,'unit','')))
+             print('sum:            {} '.format(getattr(t,'sum','') + getattr(t,'unit','')))
+             print()
 
 @osnag.guarded
 def main():
