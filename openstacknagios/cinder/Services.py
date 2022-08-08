@@ -41,7 +41,7 @@ class CinderServices(osnag.Resource):
     def probe(self):
 
         try:
-           cinder=Client( '2',
+           cinder=Client( '3',
                           session  = self.get_session(),
                           insecure = self.openstack['insecure'],
                           cacert   = self.openstack['cacert'],
