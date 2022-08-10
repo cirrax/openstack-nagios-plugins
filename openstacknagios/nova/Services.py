@@ -41,7 +41,7 @@ class NovaServices(osnag.Resource):
     def probe(self):
 
         try:
-           nova=Client('2', 
+           nova=Client('2.1', 
                        session  = self.get_session(),
                        cacert   = self.openstack['cacert'],
                        insecure = self.openstack['insecure'])
