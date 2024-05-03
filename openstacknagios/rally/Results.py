@@ -48,25 +48,22 @@ class RallyResults(osnag.Resource):
         osnag.Resource.__init__(self)
 
     def probe(self):
-
         full_duration=0
         load_duration=0
         total=0
         errors=0
         slafail=0
-        for res in self.results:
-            total=total+1
-            full_duration=full_duration + res['full_duration']
-            load_duration=load_duration + res['load_duration']
-            for runres in res['result']:
-                if runres['error'] != []:
-                    errors = errors + 1
-
-            if 'sla' in res:
-                for sla in res['sla']:
-                    if not sla['success']:
-                        slafail=slafail+1
-
+        for tres in self.results['tasks']:
+           for stres in tres['subtasks']:
+              for res in stres['workloads']:
+                  total=total+res['total_iteration_count']
+                  errors=errors+res['failed_iteration_count']
+                  full_duration=full_duration + res['full_duration']
+                  load_duration=load_duration + res['load_duration']
+                  if 'sla_result' in res:
+                      for sla in res['sla_results']['sla']:
+                          if not sla['success']:
+                              slafail=slafail+1
 
         yield osnag.Metric('total', total)
         yield osnag.Metric('errors', errors )
